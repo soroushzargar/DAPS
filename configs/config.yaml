@@ -1,0 +1,70 @@
+general_config:
+  results_dir: "./results"
+
+baseline:
+  general_dataset_config:
+    # number of initial samplings
+    n_init_splits: 10
+    n_train_labels: 20
+    n_val_labels: 20
+
+  
+  datasets:
+    cora_ml: "general"
+    cora_ml_largest_component: "general"
+    cora_full: "general"
+    pubmed: "general"
+    citeseer: "general"
+    coauthor_cs: "general"
+    coauthor_physics: "general"
+    amazon_computers: "general"
+    amazon_photo: "general"
+
+  models:
+    GCN:
+      config:
+        n_hidden: 64
+        p_dropout: 0.8
+
+      optimizer:
+        learning_rate: 0.01
+        weight_decay: 0.001
+
+    GAT:
+      config:
+        n_hidden: 64
+        n_heads: 8
+        p_dropout: 0.6
+      
+      optimizer:
+        learning_rate: 0.01
+        weight_decay: 0.01
+    
+    SAGE:
+      config:
+        n_hidden: 32
+        p_dropout: 0.4
+
+      optimizer:
+        learning_rate: 0.001
+        weight_decay: 0.1
+
+    MLP:
+      config:
+        n_hidden: 64
+        p_dropout: 0.8
+      
+      optimizer:
+        learning_rate: 0.005
+        weight_decay: 0.01
+
+    APPNPNet:
+      config:
+        n_hidden: 64
+        p_dropout: 0.5
+        alpha: 0.1
+        k_hops: 10
+
+      optimizer:
+        learning_rate: 0.01
+        weight_decay: 0.0001
